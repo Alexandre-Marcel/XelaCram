@@ -1,37 +1,20 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>💖 Ma Valentine ? 💖</title>
-    <link rel="icon" type="image/png" href="img/Liked.svg.png">
-    <link rel="stylesheet" href="style2.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Water Page</title>
+  <link rel="stylesheet" href="style2.css" />
+  <link rel="icon" type="image/svg" href="img/logo.svg">
 </head>
 <body>
-
-	<div class="back-container">
-		<a href="index.html" class="back-btn">⬅ Retour</a>
-	</div>
-
-    <div class="container">
-        <img src="img/ours3d.png" alt="Ourson" class="bear">
-
-        <h1>💌 Veux-tu être ma Valentine ? 💌</h1>
-
-        <div class="buttons">
-            <button id="yesBtn" class="yes">Oui 💕</button>
-            <button id="noBtn" class="no">Non 😢</button>
-        </div>
-    </div>
-
-    <!-- Popup -->
-    <div id="popup" class="popup">
-        <div class="popup-content">
-            <span id="close">&times;</span>
-            <div id="popupMessage"></div>
-        </div>
-    </div>
-
-    <script src="script2.js"></script>
+  <div id="bg"></div>
+  <a id="back-btn" href="index.html" title="Retour">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+    </svg>
+  </a>
+  <div id="bubbles-container"></div>
+  <script src="script2.js"></script>
 </body>
 </html>

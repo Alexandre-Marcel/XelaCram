@@ -1,152 +1,102 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
 body {
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(135deg, #ff9a9e, #ff4d6d);
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    text-align: center;
-    overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #000;
 }
 
-.back-container {
-    position: absolute;
-    top: 20px;
-    left: 20px;
+#bg {
+  position: fixed;
+  inset: 0;
+  background: url('img/water.webp') center center / cover no-repeat;
+  z-index: 0;
 }
 
-.back-btn {
-    text-decoration: none;
-    background-color: white;
-    color: #ff4d6d;
-    padding: 10px 20px;
-    border-radius: 20px;
-    font-weight: bold;
-    transition: 0.3s;
+#back-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 100;
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
 }
 
-.back-btn:hover {
-    background-color: #ffe6ea;
-    transform: scale(1.1);
+#back-btn:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(1.1);
 }
 
-.container {
-    color: white;
+#back-btn svg {
+  width: 22px;
+  height: 22px;
+  fill: white;
 }
 
-.bear {
-    width: 250px;
-    animation: float 3s ease-in-out infinite;
+.bubble {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  cursor: pointer;
+  z-index: 10;
+  animation: floatBubble 3s ease-in-out infinite;
 }
 
-@keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-15px); }
-    100% { transform: translateY(0px); }
+.bubble img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
 }
 
-.buttons {
-    margin-top: 30px;
+.bubble:hover {
+  filter: brightness(1.15);
 }
 
-button {
-    padding: 15px 30px;
-    font-size: 1.2em;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    margin: 10px;
-    transition: 0.3s;
+.bubble.popped {
+  animation: none;
+  cursor: default;
 }
 
-.yes {
-    background-color: white;
-    color: #ff4d6d;
+.bubble.popped:hover {
+  filter: none;
 }
 
-.no {
-    background-color: #ff1e4d;
-    color: white;
+@keyframes floatBubble {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
 }
 
-button:hover {
-    transform: scale(1.1);
+.fish {
+  position: fixed;
+  z-index: 50;
+  pointer-events: none;
 }
 
-/* Popup */
-.popup {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.6);
-    justify-content: center;
-    align-items: center;
+.fish img {
+  width: 70px;
+  height: auto;
+  user-select: none;
 }
 
-.popup-content {
-    background: white;
-    padding: 30px;
-    border-radius: 20px;
-    text-align: center;
-    animation: pop 0.3s ease;
+@keyframes swimRight {
+  from { left: -100px; }
+  to   { left: calc(100vw + 100px); }
 }
 
-@keyframes pop {
-    from { transform: scale(0.5); }
-    to { transform: scale(1); }
-}
-
-#close {
-    position: absolute;
-    right: 20px;
-    top: 10px;
-    cursor: pointer;
-    font-size: 25px;
-}
-
-@media (max-width: 768px) {
-
-    body {
-        padding: 80px 20px 20px 20px; /* espace en haut */
-        height: auto;
-        min-height: 100vh;
-
-        display: block; /* enlève le centrage vertical */
-        overflow: visible; /* évite de couper le contenu */
-    }
-
-    .container {
-        width: 100%;
-        max-width: 400px;
-        margin: 0 auto; /* centre horizontalement */
-    }
-
-    .bear {
-        width: 70%;
-        max-width: 220px;
-    }
-
-    h1 {
-        font-size: 1.5em;
-        margin-top: 20px;
-    }
-
-    .buttons {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    button {
-        width: 100%;
-        font-size: 1.1em;
-    }
-
-    .back-container {
-        top: 15px;
-        left: 15px;
-    }
-
+@keyframes swimLeft {
+  from { left: calc(100vw + 100px); }
+  to   { left: -100px; }
 }
